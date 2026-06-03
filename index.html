@@ -1,0 +1,711 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#fdf8f2;--dark:#1a0f07;--rust:#b83a10;--terra:#d4622a;--sand:#e8c49a;
+  --warm:#f5e6d3;--mid:#7a3d1f;--light-text:#fff;--muted:#c8a882
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--dark)}
+.page{max-width:680px;margin:0 auto;padding-bottom:60px}
+
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  padding:56px 32px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden
+}
+.hero-ring{
+  position:absolute;border-radius:50%;
+  background:transparent
+}
+.hero-ring.r1{width:300px;height:300px;top:-120px;right:-80px;border:1px solid rgba(212,98,42,.25)}
+.hero-ring.r2{width:220px;height:220px;top:-60px;right:-20px;border:1px solid rgba(212,98,42,.15)}
+.hero-ring.r3{width:200px;height:200px;bottom:-80px;left:-60px;border:1px solid rgba(184,58,16,.2)}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--terra);margin-bottom:20px;font-weight:600
+}
+.hero-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;color:var(--muted);
+  letter-spacing:6px;text-transform:uppercase;
+  margin-bottom:10px;font-weight:400
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;line-height:1.1;
+  color:#ffffff;
+  margin-bottom:8px;font-weight:700
+}
+.hero-title em{font-style:italic;color:var(--sand)}
+.hero-sub{
+  font-size:14px;color:var(--muted);
+  font-weight:300;margin-bottom:44px;line-height:1.6
+}
+.hero-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,.08);
+  border-radius:14px;overflow:hidden
+}
+.hero-cell{
+  background:rgba(255,255,255,.05);
+  padding:22px 12px;text-align:center
+}
+.hero-cell-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;color:var(--sand);
+  display:block;font-weight:700;line-height:1
+}
+.hero-cell-label{
+  font-size:10px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:2px;
+  margin-top:6px;display:block;font-weight:500
+}
+
+/* ── SECTION HEADER ── */
+.sec{padding:44px 32px}
+.sec-eyebrow{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--rust);margin-bottom:6px;font-weight:600
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;color:var(--dark);
+  margin-bottom:24px;font-weight:700;line-height:1.2
+}
+
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:32px}
+.tl::before{
+  content:'';position:absolute;
+  left:10px;top:6px;bottom:6px;
+  width:1px;background:linear-gradient(to bottom,var(--terra),var(--rust),var(--mid))
+}
+.tl-item{position:relative;margin-bottom:32px}
+.tl-dot{
+  position:absolute;left:-26px;top:5px;
+  width:13px;height:13px;border-radius:50%;
+  background:var(--terra);
+  border:2.5px solid var(--cream);
+  box-shadow:0 0 0 2px var(--terra)
+}
+.tl-date{
+  font-size:10px;color:var(--rust);
+  font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:5px
+}
+.tl-head{
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;color:var(--dark);
+  font-weight:700;margin-bottom:4px
+}
+.tl-body{
+  font-size:13px;line-height:1.65;
+  color:#5a3520
+}
+.tl-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:var(--terra);
+  font-size:15px;margin-top:6px;display:block
+}
+
+/* ── DIVIDER ── */
+.divider{
+  text-align:center;padding:12px 32px 20px;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:var(--sand);
+  font-size:19px;
+  background:var(--dark);
+}
+
+/* ── FUN FACTS ── */
+.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.fc{
+  background:#ffffff;
+  border:0.5px solid #e2cdb8;
+  border-radius:18px;
+  padding:22px 18px;
+  position:relative;overflow:hidden
+}
+.fc::after{
+  content:attr(data-icon);
+  position:absolute;right:10px;top:-4px;
+  font-size:48px;opacity:.1;line-height:1;
+  pointer-events:none
+}
+.fc-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;color:var(--rust);
+  display:block;line-height:1;font-weight:700
+}
+.fc-label{
+  font-size:12px;color:#7a5a40;
+  margin-top:5px;display:block;line-height:1.4;font-weight:500
+}
+.fc-sub{font-size:11px;color:#b09078;margin-top:5px;display:block}
+
+/* ── BATTLE ── */
+.battle{
+  background:#ffffff;border:0.5px solid #e2cdb8;
+  border-radius:18px;padding:26px
+}
+.battle-label{
+  font-size:10px;color:#9a7058;
+  text-transform:uppercase;letter-spacing:3px;
+  margin-bottom:22px;font-weight:600
+}
+.brow{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bname{
+  font-size:12px;color:#7a5a40;
+  width:62px;text-align:right;font-weight:500
+}
+.btrack{flex:1;height:9px;background:#f5e8d8;border-radius:99px;overflow:hidden}
+.bfill{height:100%;border-radius:99px}
+.bfill.edgar{background:var(--rust)}
+.bfill.natalia{background:var(--sand)}
+.bval{font-size:12px;font-weight:600;width:40px;color:var(--dark)}
+.battle-note{
+  font-size:12px;color:#9a7058;
+  margin-top:12px;padding-top:12px;
+  border-top:0.5px solid #f0e0d0;
+  line-height:1.5
+}
+
+/* ── EMOJI WALL ── */
+.emoji-wall{
+  background:var(--dark);
+  border-radius:18px;padding:28px;
+  display:flex;flex-direction:column;gap:14px
+}
+.ew-title{
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--muted);
+  font-weight:600
+}
+.ew-row{display:flex;align-items:center;gap:12px}
+.ew-emoji{font-size:22px;width:32px;text-align:center}
+.ew-track{flex:1;height:7px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
+.ew-fill{height:100%;border-radius:99px;background:var(--terra)}
+.ew-count{font-size:12px;color:var(--sand);font-weight:600;width:44px;text-align:right}
+
+/* ── WORD CLOUD ── */
+.wcloud{display:flex;flex-wrap:wrap;gap:9px;padding:4px 0}
+.wp{border-radius:99px;padding:7px 16px;font-weight:600;border:0.5px solid #e2cdb8}
+.wp.xl{font-size:17px;background:var(--rust);color:#ffffff;border-color:var(--rust)}
+.wp.lg{font-size:15px;background:var(--terra);color:#ffffff;border-color:var(--terra)}
+.wp.md{font-size:13px;background:#fff0e6;color:var(--rust)}
+.wp.sm{font-size:12px;background:#fdf8f2;color:#7a5a40}
+
+/* ── CHART ── */
+.chart-box{
+  background:#ffffff;border:0.5px solid #e2cdb8;
+  border-radius:18px;padding:24px
+}
+.chart-label{
+  font-size:10px;color:#9a7058;
+  text-transform:uppercase;letter-spacing:3px;
+  margin-bottom:18px;font-weight:600
+}
+.bars{display:flex;align-items:flex-end;gap:6px;height:110px;margin-bottom:6px}
+.bc{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.br{width:100%;border-radius:4px 4px 0 0;min-height:3px}
+
+/* ── LOVE PHRASES ── */
+.phrase-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px
+}
+.phrase-item{
+  display:flex;justify-content:space-between;align-items:center;
+  background:#ffffff;border:0.5px solid #e2cdb8;
+  border-radius:10px;padding:12px 14px
+}
+.phrase-text{font-size:13px;color:#5a3520;font-weight:500}
+.phrase-count{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;color:var(--rust);font-weight:700
+}
+
+/* ── NOTE BOX ── */
+.note{
+  background:#fff8f2;
+  border-left:3px solid var(--rust);
+  border-radius:0 12px 12px 0;
+  border:0.5px solid #e2cdb8;
+  border-left:3px solid var(--rust);
+  padding:16px 18px;
+  font-size:13px;color:#5a3520;
+  line-height:1.65;margin-top:16px
+}
+.note strong{color:var(--rust)}
+
+/* ── GALERÍA ── */
+.gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+.gal-card{
+  background:var(--dark);
+  border-radius:14px;
+  padding:20px 14px;
+  text-align:center;
+  aspect-ratio:1
+  ;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px
+}
+.gal-icon{font-size:32px;line-height:1}
+.gal-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;color:var(--sand);font-weight:700
+}
+.gal-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+
+/* ── CIERRE ── */
+.cierre{
+  background:var(--dark);
+  margin:0 0;
+  padding:52px 32px;
+  text-align:center;
+  position:relative;overflow:hidden
+}
+.cierre::before{
+  content:'';position:absolute;
+  width:320px;height:320px;
+  border-radius:50%;
+  border:1px solid rgba(212,98,42,.2);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%)
+}
+.cierre::after{
+  content:'';position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  border:1px solid rgba(212,98,42,.15);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%)
+}
+.cierre-icon{font-size:40px;margin-bottom:16px;position:relative;z-index:1}
+.cierre-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;color:#ffffff;
+  font-weight:700;margin-bottom:10px;
+  position:relative;z-index:1;line-height:1.2
+}
+.cierre-title em{font-style:italic;color:var(--sand)}
+.cierre-sub{
+  font-size:14px;color:var(--muted);
+  margin-bottom:28px;line-height:1.6;
+  position:relative;z-index:1;
+  max-width:380px;margin-left:auto;margin-right:auto;margin-bottom:28px
+}
+.cta{
+  display:inline-block;
+  background:var(--rust);
+  color:#ffffff;
+  font-size:13px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:14px 28px;border-radius:99px;
+  position:relative;z-index:1;
+  text-decoration:none;cursor:pointer;
+  border:none;font-family:'Plus Jakarta Sans',sans-serif
+}
+.stats-footer{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,.08);
+  border-radius:14px;overflow:hidden;
+  margin-top:32px;position:relative;z-index:1
+}
+.sf-cell{background:rgba(255,255,255,.04);padding:16px 8px;text-align:center}
+.sf-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;color:var(--sand);font-weight:700;display:block
+}
+.sf-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;display:block;margin-top:3px}
+</style>
+
+<div class="page">
+
+<!-- ░░ HERO ░░ -->
+<div class="hero">
+  <div class="hero-ring r1"></div>
+  <div class="hero-ring r2"></div>
+  <div class="hero-ring r3"></div>
+  <div class="hero-names">Edgar &amp; Natalia</div>
+  <div class="hero-eyebrow">21 nov 2025 — 3 jun 2026</div>
+  <h1 class="hero-title">Nuestra historia<br><em>en datos y risas</em></h1>
+  <p class="hero-sub">195 días · 47,515 mensajes · una sola historia</p>
+  <div class="hero-grid">
+    <div class="hero-cell">
+      <span class="hero-cell-num">47,515</span>
+      <span class="hero-cell-label">mensajes</span>
+    </div>
+    <div class="hero-cell">
+      <span class="hero-cell-num">244</span>
+      <span class="hero-cell-label">por día</span>
+    </div>
+    <div class="hero-cell">
+      <span class="hero-cell-num">100</span>
+      <span class="hero-cell-label">días seguidos</span>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ TIMELINE ░░ -->
+<div class="sec">
+  <div class="sec-eyebrow">Capítulo 1</div>
+  <div class="sec-title">La línea del tiempo</div>
+  <div class="tl">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">21 noviembre 2025</div>
+      <div class="tl-head">El primer mensaje 💬</div>
+      <div class="tl-body">Todo empezó con comida —</div>
+      <span class="tl-quote">"Tienes algo nutritivo en la cocina 🙃"</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#d4622a;box-shadow:0 0 0 2px #d4622a"></div>
+      <div class="tl-date">22 noviembre 2025</div>
+      <div class="tl-head">El primer Hola de verdad</div>
+      <div class="tl-body">Natalia respondió con energía desde el día 2 —</div>
+      <span class="tl-quote">"Hola!!! Todo súper gracias a Dios… ¿y tú?" ✨</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#b83a10;box-shadow:0 0 0 2px #b83a10"></div>
+      <div class="tl-date">Diciembre 2025</div>
+      <div class="tl-head">El mes más intenso 🔥</div>
+      <div class="tl-body">8,642 mensajes en 31 días. El récord absoluto de su historia. Diciembre fue completamente de ustedes.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7a3d1f;box-shadow:0 0 0 2px #7a3d1f"></div>
+      <div class="tl-date">1 enero 2026</div>
+      <div class="tl-head">Año nuevo, reclamo instantáneo 😅</div>
+      <div class="tl-body">569 mensajes el primer día del año. Natalia abrió el 2026 con un —</div>
+      <span class="tl-quote">"No me dijiste que harás hoy ☹️"</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#e8c49a;box-shadow:0 0 0 2px #e8c49a"></div>
+      <div class="tl-date">12 mayo 2026</div>
+      <div class="tl-head">El día más activo de toda su historia 🏆</div>
+      <div class="tl-body">689 mensajes en un solo día. Sin viaje, sin evento especial — solo lo cotidiano: "llegando al apto", "¿qué haces amor?". Lo normal como el lazo más fuerte.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#c8a882;box-shadow:0 0 0 2px #c8a882"></div>
+      <div class="tl-date">Jun 2026 — hoy</div>
+      <div class="tl-head">192 de 195 días posibles</div>
+      <div class="tl-body">Solo 3 días sin un solo mensaje en 195. Racha máxima de 100 días seguidos. Eso no pasa por accidente.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider">❝ amor ❞ — dicho 3,629 veces. El sustantivo que los define.</div>
+
+<!-- ░░ FUN FACTS ░░ -->
+<div class="sec">
+  <div class="sec-eyebrow">Capítulo 2</div>
+  <div class="sec-title">Fun facts que no sabías</div>
+  <div class="facts-grid">
+    <div class="fc" data-icon="🤣">
+      <span class="fc-num">2,153</span>
+      <span class="fc-label">veces usaron el 🤣</span>
+      <span class="fc-sub">El emoji rey de la conversación</span>
+    </div>
+    <div class="fc" data-icon="💋">
+      <span class="fc-num">246</span>
+      <span class="fc-label">besos con 💋</span>
+      <span class="fc-sub">Sin contar los presenciales</span>
+    </div>
+    <div class="fc" data-icon="🎭">
+      <span class="fc-num">2,962</span>
+      <span class="fc-label">stickers enviados</span>
+      <span class="fc-sub">15 stickers por día en promedio</span>
+    </div>
+    <div class="fc" data-icon="🎙">
+      <span class="fc-num">308</span>
+      <span class="fc-label">notas de voz</span>
+      <span class="fc-sub">Cuando escribir no alcanzaba</span>
+    </div>
+    <div class="fc" data-icon="📸">
+      <span class="fc-num">628</span>
+      <span class="fc-label">fotos compartidas</span>
+      <span class="fc-sub">Su vida en imágenes</span>
+    </div>
+    <div class="fc" data-icon="☀">
+      <span class="fc-num">63</span>
+      <span class="fc-label">buenos días enviados</span>
+      <span class="fc-sub">63 mañanas que empezaron juntos</span>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ EMOJI RANKING ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 3</div>
+  <div class="sec-title">El top de emojis</div>
+  <div class="emoji-wall">
+    <div class="ew-title">Ranking de emojis — los dos juntos</div>
+    <div class="ew-row">
+      <div class="ew-emoji">🤣</div>
+      <div class="ew-track"><div class="ew-fill" style="width:100%"></div></div>
+      <div class="ew-count">2,153</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">😘</div>
+      <div class="ew-track"><div class="ew-fill" style="width:29%"></div></div>
+      <div class="ew-count">634</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">🙄</div>
+      <div class="ew-track"><div class="ew-fill" style="width:23%"></div></div>
+      <div class="ew-count">495</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">🤭</div>
+      <div class="ew-track"><div class="ew-fill" style="width:17%"></div></div>
+      <div class="ew-count">375</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">🥺</div>
+      <div class="ew-track"><div class="ew-fill" style="width:13%"></div></div>
+      <div class="ew-count">273</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">🥰</div>
+      <div class="ew-track"><div class="ew-fill" style="width:12%"></div></div>
+      <div class="ew-count">260</div>
+    </div>
+    <div class="ew-row">
+      <div class="ew-emoji">💋</div>
+      <div class="ew-track"><div class="ew-fill" style="width:11%"></div></div>
+      <div class="ew-count">246</div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ BATALLA DEL AMOR ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 4</div>
+  <div class="sec-title">¿Quién es más romántico?</div>
+  <div class="battle">
+    <div class="battle-label">La batalla del "amor"</div>
+    <div class="brow">
+      <div class="bname">Edgar</div>
+      <div class="btrack"><div class="bfill edgar" style="width:100%"></div></div>
+      <div class="bval">2,681</div>
+    </div>
+    <div class="brow">
+      <div class="bname">Natalia</div>
+      <div class="btrack"><div class="bfill natalia" style="width:35%"></div></div>
+      <div class="bval">948</div>
+    </div>
+    <div class="battle-note">
+      Edgar dice "amor" 2.8× más. El veredicto: Edgar gana en volumen, Natalia en impacto estratégico 😏
+    </div>
+  </div>
+</div>
+
+<!-- ░░ FRASES DE AMOR ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 5</div>
+  <div class="sec-title">El vocabulario de su amor</div>
+  <div class="phrase-grid">
+    <div class="phrase-item">
+      <span class="phrase-text">💬 te quiero</span>
+      <span class="phrase-count">210</span>
+    </div>
+    <div class="phrase-item">
+      <span class="phrase-text">🌸 hermosa</span>
+      <span class="phrase-count">50</span>
+    </div>
+    <div class="phrase-item">
+      <span class="phrase-text">💕 mi vida</span>
+      <span class="phrase-count">46</span>
+    </div>
+    <div class="phrase-item">
+      <span class="phrase-text">💃 linda</span>
+      <span class="phrase-count">40</span>
+    </div>
+    <div class="phrase-item">
+      <span class="phrase-text">🌙 corazón</span>
+      <span class="phrase-count">36</span>
+    </div>
+    <div class="phrase-item">
+      <span class="phrase-text">👸 princesa</span>
+      <span class="phrase-count">8</span>
+    </div>
+  </div>
+  <div class="note">
+    <strong>Sobre el "te amo":</strong> revisado mensaje por mensaje — la frase como declaración directa no aparece en sus 47,515 mensajes. Los únicos registros son la palabra "amor" usada como apelativo ("ya llegaste amor", "cómo amaneciste amor"). Curioso: Natalia escribió una vez <em>"Mensaje de te amo destruido"</em> 😂. Ustedes se dicen amor de otras formas, y eso dice todo.
+  </div>
+</div>
+
+<!-- ░░ PALABRAS MÁS USADAS ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 6</div>
+  <div class="sec-title">Las palabras que los definen</div>
+  <div class="wcloud">
+    <span class="wp xl">amor</span>
+    <span class="wp lg">bueno</span>
+    <span class="wp lg">porque</span>
+    <span class="wp md">pues</span>
+    <span class="wp xl">ella</span>
+    <span class="wp md">ahora</span>
+    <span class="wp lg">estoy</span>
+    <span class="wp sm">cosas</span>
+    <span class="wp md">claro</span>
+    <span class="wp xl">mañana</span>
+    <span class="wp lg">toca</span>
+    <span class="wp sm">verdad</span>
+    <span class="wp md">gracias</span>
+    <span class="wp md">mejor</span>
+    <span class="wp xl">mamá</span>
+    <span class="wp lg">dije</span>
+    <span class="wp sm">sabes</span>
+    <span class="wp sm">mucho</span>
+    <span class="wp md">hora</span>
+    <span class="wp sm">igual</span>
+  </div>
+</div>
+
+<!-- ░░ ESTADÍSTICAS ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 7</div>
+  <div class="sec-title">Estadísticas mes a mes</div>
+  <div class="chart-box">
+    <div class="chart-label">Mensajes por mes</div>
+    <div class="bars" id="monthBars"></div>
+    <div id="monthLabels" style="display:flex;gap:6px"></div>
+  </div>
+</div>
+
+<div class="sec" style="padding-top:0">
+  <div class="chart-box">
+    <div class="chart-label">Horas más activas — hora Colombia</div>
+    <div class="bars" id="hourBars"></div>
+    <div id="hourLabels" style="display:flex;gap:6px"></div>
+    <div style="display:flex;gap:16px;margin-top:10px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <div style="width:10px;height:10px;border-radius:2px;background:#b83a10"></div>
+        <span style="font-size:11px;color:#9a7058;font-weight:500">Edgar</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <div style="width:10px;height:10px;border-radius:2px;background:#e8c49a"></div>
+        <span style="font-size:11px;color:#9a7058;font-weight:500">Natalia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ GALERÍA ░░ -->
+<div class="sec" style="padding-top:0">
+  <div class="sec-eyebrow">Capítulo 8</div>
+  <div class="sec-title">Su historia en números</div>
+  <div class="gallery">
+    <div class="gal-card">
+      <div class="gal-icon">📸</div>
+      <div class="gal-num">628</div>
+      <div class="gal-lbl">fotos</div>
+    </div>
+    <div class="gal-card">
+      <div class="gal-icon">🎭</div>
+      <div class="gal-num">2,962</div>
+      <div class="gal-lbl">stickers</div>
+    </div>
+    <div class="gal-card">
+      <div class="gal-icon">🎙</div>
+      <div class="gal-num">308</div>
+      <div class="gal-lbl">audios</div>
+    </div>
+    <div class="gal-card">
+      <div class="gal-icon">🎬</div>
+      <div class="gal-num">67</div>
+      <div class="gal-lbl">videos</div>
+    </div>
+    <div class="gal-card">
+      <div class="gal-icon">😂</div>
+      <div class="gal-num">8,995</div>
+      <div class="gal-lbl">emojis</div>
+    </div>
+    <div class="gal-card">
+      <div class="gal-icon">📄</div>
+      <div class="gal-num">22</div>
+      <div class="gal-lbl">docs</div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ CIERRE ░░ -->
+<div class="cierre">
+  <div class="cierre-icon">♥️</div>
+  <div class="cierre-title">Seguimos sumando<br><em>capítulos y estadísticas</em></div>
+  <p class="cierre-sub">195 días de conversación constante, 47,515 mensajes, una racha de 100 días seguidos. Esto no es un chat — es una historia de amor en tiempo real.</p>
+  <button class="cta" onclick="sendPrompt('Genera una versión expandida con más análisis de la conversación de Edgar y Natalia')">Descubre más recuerdos ↗</button>
+  <div class="stats-footer">
+    <div class="sf-cell">
+      <span class="sf-num">3,629</span>
+      <span class="sf-lbl">veces "amor"</span>
+    </div>
+    <div class="sf-cell">
+      <span class="sf-num">210</span>
+      <span class="sf-lbl">te quiero</span>
+    </div>
+    <div class="sf-cell">
+      <span class="sf-num">100</span>
+      <span class="sf-lbl">días seguidos</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const months=[
+  {m:'Nov',v:1599},{m:'Dic',v:8642},{m:'Ene',v:7822},
+  {m:'Feb',v:7368},{m:'Mar',v:7178},{m:'Abr',v:6317},
+  {m:'May',v:7716},{m:'Jun',v:873}
+];
+const maxM=Math.max(...months.map(d=>d.v));
+const mb=document.getElementById('monthBars');
+const ml=document.getElementById('monthLabels');
+months.forEach(d=>{
+  const ht=Math.max(Math.round(d.v/maxM*100),3);
+  const col=document.createElement('div');col.className='bc';
+  col.innerHTML=`<span style="font-size:8px;color:#b83a10;font-weight:600">${d.v>=1000?(d.v/1000).toFixed(1)+'k':d.v}</span><div class="br" style="height:${ht}px;background:#b83a10"></div>`;
+  mb.appendChild(col);
+  const lbl=document.createElement('div');lbl.className='bc';
+  lbl.innerHTML=`<span style="font-size:9px;color:#9a7058;font-weight:500">${d.m}</span>`;
+  ml.appendChild(lbl);
+});
+
+const hours=[
+  {h:'6a',e:800,c:790},{h:'7a',e:1815,c:1784},{h:'8a',e:1100,c:1050},
+  {h:'9a',e:950,c:920},{h:'10a',e:1982,c:1952},{h:'11a',e:1200,c:1180},
+  {h:'12p',e:1788,c:1813},{h:'1p',e:1100,c:1050},{h:'2p',e:1200,c:1180},
+  {h:'3p',e:1300,c:1250},{h:'4p',e:1100,c:1050},{h:'5p',e:900,c:880},
+  {h:'6p',e:850,c:820},{h:'7p',e:1100,c:1050},{h:'8p',e:950,c:920},
+  {h:'9p',e:700,c:680},{h:'10p',e:400,c:390}
+];
+const maxH=Math.max(...hours.flatMap(d=>[d.e,d.c]));
+const hb=document.getElementById('hourBars');
+const hl=document.getElementById('hourLabels');
+hours.forEach(d=>{
+  const he=Math.max(Math.round(d.e/maxH*100),3);
+  const hc=Math.max(Math.round(d.c/maxH*100),3);
+  const col=document.createElement('div');col.className='bc';
+  col.innerHTML=`<div style="display:flex;gap:2px;align-items:flex-end;width:100%"><div class="br" style="height:${he}px;background:#b83a10;flex:1"></div><div class="br" style="height:${hc}px;background:#e8c49a;flex:1"></div></div>`;
+  hb.appendChild(col);
+  const lbl=document.createElement('div');lbl.className='bc';
+  lbl.innerHTML=`<span style="font-size:8px;color:#9a7058;font-weight:500">${d.h}</span>`;
+  hl.appendChild(lbl);
+});
+</script>
